@@ -1,0 +1,33 @@
+#+TITLE: Programming Code training
+#+STARTUP:showall
+
+* Hello World
+  프로그래밍 언어를 처음 시작하면서 작성하는 각 언어의 기본 구조의 프로그램을 작성해 본다. 
+** Go
+** Python
+** Object-Pascal
+** JAVA
+
+
+* String Process 
+  문자열을 처리하는 코드 연습
+** Go
+
+* Search
+  검색에 관련된 코드 연습
+** Go
+
+* Bit
+  비트 처리에 관련된 코드 연습 
+
+
+* HashMap
+  해쉬에 관련된 코드 연습
+  
+
+* Regex
+  정규표현식 코드 연습
+
+
+* Math
+  수학 관련 코드 연습
