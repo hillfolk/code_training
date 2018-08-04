@@ -1,2 +1,1 @@
-# code_training
-Programming language training
+# Programming language training
