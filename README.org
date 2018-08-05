@@ -3,7 +3,7 @@
 
 * Hello World
   프로그래밍 언어를 처음 시작하면서 작성하는 각 언어의 기본 구조의 프로그램을 작성해 본다. 
-** Go
+** [[./hello_world/go/main.go][Go]]
 ** Python
 ** Object-Pascal
 ** JAVA
