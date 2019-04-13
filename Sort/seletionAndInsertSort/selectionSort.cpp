@@ -58,33 +58,29 @@ int main()
   cin >> input_size;
   cnt  = 0;
 
-
-    vector<int> vi;
-    vector<int> vi2;
-    randomV(vi,input_size);
+  vector<int> vi;
+  vector<int> vi2;
+  randomV(vi,input_size);
     
-    printV(vi);
-    cout<<" "<<endl;
-    cout<<"연산시작:"<<endl;
+  printV(vi);
+  cout<<" "<<endl;
+  cout<<"연산시작:"<<endl;
     
-    begin = clock();
-    selectionSort(vi);
-    end = clock();
+  begin = clock();
+  selectionSort(vi);
+  end = clock();
     
-    cout<<"수행시간: "<<((end-begin))<<endl;
-    printV(vi);
-    cout<<"연산시작:"<<endl;
+  cout<<"수행시간: "<<((end-begin))<<endl;
+  printV(vi);
+  cout<<"연산시작:"<<endl;
   
-    randomV(vi2,input_size);
+  randomV(vi2,input_size);
   
-    begin = clock();
-    insertSort(vi2);
-    end = clock();
-    cout<<"수행시간: "<<((end-begin))<<endl;
-    printV(vi2);
-
-  
-    cnt++;
+  begin = clock();
+  insertSort(vi2);
+  end = clock();
+  cout<<"수행시간: "<<((end-begin))<<endl;
+  printV(vi2);
 
   return 0;
 }
