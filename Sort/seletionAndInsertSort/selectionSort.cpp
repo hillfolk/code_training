@@ -51,37 +51,41 @@ int main()
 {
   srand((unsigned int)time(NULL)); // seed 값 자동 추가
   clock_t begin,end;
-  vector<int> vi;
-  vector<int> vi2;
-  int input_size;
+
+  int input_size,cnt;
 
   
   cin >> input_size;
+  cnt  = 0;
 
-  randomV(vi,input_size);
 
-  printV(vi);
-  cout<<" "<<endl;
-  cout<<"연산시작:"<<endl;
-  
-  begin = clock();
-  selectionSort(vi);
-  end = clock();
-
-  cout<<"수행시간: "<<((end-begin))<<endl;
-
-  printV(vi);
-
-  cout<<"연산시작:"<<endl;
-
-  randomV(vi2,input_size);
-  
-  begin = clock();
-  insertSort(vi2);
-  end = clock();
-  cout<<"수행시간: "<<((end-begin))<<endl;
-  printV(vi2);
+    vector<int> vi;
+    vector<int> vi2;
+    randomV(vi,input_size);
     
+    printV(vi);
+    cout<<" "<<endl;
+    cout<<"연산시작:"<<endl;
+    
+    begin = clock();
+    selectionSort(vi);
+    end = clock();
+    
+    cout<<"수행시간: "<<((end-begin))<<endl;
+    printV(vi);
+    cout<<"연산시작:"<<endl;
+  
+    randomV(vi2,input_size);
+  
+    begin = clock();
+    insertSort(vi2);
+    end = clock();
+    cout<<"수행시간: "<<((end-begin))<<endl;
+    printV(vi2);
+
+  
+    cnt++;
+
   return 0;
 }
 
