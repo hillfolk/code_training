@@ -6,6 +6,6 @@ public class StringSet {
   	Array set = String[15]; 
   	String input = readLine(null);
   	set.insert(input);
-    System.out.println("Hello World!" + input); // Hello World 를 출력
+	System.out.println("Hello World!" + input); // Hello World 를 출력
   }
 }
