@@ -34,7 +34,7 @@
     
    - Code
      * C++
-       [[./Sort/c++/seletionAndInsertSort/selectionSort.cpp][O(N^2)]]
+       [[./sort/c++/seletionAndInsertSort/selectionSort.cpp][O(N^2)]]
        
      
 
