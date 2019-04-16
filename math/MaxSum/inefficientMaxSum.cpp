@@ -34,6 +34,7 @@ int betterMaxSum(const vector<int>& A){
 	}
     
   }
+  return ret;
 }
 
 //Divide and Conquer O(NlgN)
@@ -88,17 +89,19 @@ int main()
   clock_t begin,end;
   int result;
 
-    begin = clock();
-  result = betterMaxSum(vi);
-  end = clock();
-  cout<<"수행시간: "<<(end-begin)<<endl;
-  cout<<"O(N2)수행결과: "<<(result)<<endl;
-  
+
   begin = clock();
   result = inefficientMaxSum(vi);
   end = clock();
   cout<<"수행시간: "<<(end-begin)<<endl;
   cout<<"O(N3)수행결과: "<<(result)<<endl;
+
+     begin = clock();
+  result = betterMaxSum(vi);
+  end = clock();
+  cout<<"수행시간: "<<(end-begin)<<endl;
+  cout<<"O(N2)수행결과: "<<(result)<<endl;
+  
 
   begin = clock();
   result = fastMaxSum(vi,0,vi.size() -1);
