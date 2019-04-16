@@ -36,7 +36,7 @@ int betterMaxSum(const vector<int>& A){
   }
 }
 
-//Divide and Conquer
+//Divide and Conquer O(NlgN)
 int fastMaxSum(const vector<int>& A, int lo, int hi){
   //구간의 길이가 1인경우
   if(lo == hi)return A[lo];
@@ -68,6 +68,17 @@ int fastMaxSum(const vector<int>& A, int lo, int hi){
 
   return max(left+right,single);	
 }
+//O(N)
+int fastestMaxSum(const vector<int>& A) 
+{
+  int N = A.size(), ret = MIN , psum = 0;
+  for(int i = 0; i < N; ++i){
+    psum = max(psum,0) +A[i];
+    ret = max(psum,ret);
+  }
+
+  return ret;
+}
 
 
 int main()
@@ -90,13 +101,17 @@ int main()
   cout<<"O(N3)수행결과: "<<(result)<<endl;
 
   begin = clock();
-  result = inefficientMaxSum(vi);
+  result = fastMaxSum(vi,0,vi.size() -1);
   end = clock();
   cout<<"수행시간: "<<(end-begin)<<endl;
-  cout<<"Divide and Conquer 수행결과: "<<(result)<<endl;
+  cout<<"O(NlgN) 수행결과: "<<(result)<<endl;
 
 
-  // 주먹구구식 풀이 //O(N^3)
+  begin = clock();
+  result = fastestMaxSum(vi);
+  end = clock();
+  cout<<"수행시간: "<<(end-begin)<<endl;
+  cout<<"O(N) 수행결과: "<<(result)<<endl;
 
   return  0;
   
