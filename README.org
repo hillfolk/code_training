@@ -56,4 +56,5 @@
 
 ** Math
    - 최대 연속 구간의 합
+	* [[./math/MaxSum/c++/inefficientMaxSum.cpp][C++]]
  
