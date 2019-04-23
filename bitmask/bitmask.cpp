@@ -33,6 +33,22 @@ int main(){
   toppings ^= (1 << p);
   cout<<toppings<<endl;
 
+  //두 집합에 대한 연산하기
+  p = 3;
+  int a |= (1 << p); //원소 추가 
+
+  p = 2;
+  int b |= (1 << p); //원소 추가
+
+  int added = (a | b);
+
+  int intersection = (a & b);
+
+  int removed = (a & ~b);
+
+  int toggled = (a ^ b)
+  
+
   
   
   return 0;
