@@ -22,10 +22,7 @@ void josephus(int n, int k){
 	if(kill == survivors.end()) kill = survivors.begin();
       }
   }
-    cout << survivors.front() << " " << survivors.back() << endl;	     
-
-
-	
+    cout << survivors.front() << " " << survivors.back() << endl;	     	
 }
 
 

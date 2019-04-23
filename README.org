@@ -34,21 +34,28 @@
     
    - Code
      * C++
-       [[./sort/c++/seletionAndInsertSort/selectionSort.cpp][O(N^2)]]
+       [[./Sort/c++/seletionAndInsertSort/selectionSort.cpp][O(N^2)]]
+
+     * Java
+       - [[./sort/java/insert_sort/isort1.java][삽입정렬]]
+       - [[./sort/java/quicksort/QuickSort.java][quicksort]]
+
+     * Python
+       - [[./sort/python/qsort1.py][quicksort]]
        
      
 
 ** 비트 처리
-  비트 처리에 관련된 코드 연습 
+   비트 처리에 관련된 코드 연습 
+   - [[./bitmask/bitmask.cpp][BitMask]]
 
 
 ** HashMap
-   - 전화번호부 문제
-   - 달리기 완주자문제
-   - 베스트 앨범문제
+   - [[./hashmap/bestalubm/bestalbum.go][전화번호부 문제]]
+   - [[./compain/Solution.java][달리기 완주자문제]]
+   - [[./phonebook/phonebook.py][베스트 앨범문제]]
    
    
-  
 
 ** Regex
  
