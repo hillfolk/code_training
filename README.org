@@ -42,9 +42,6 @@
 
      * Python
        - [[./sort/python/qsort1.py][quicksort]]
-
-
-
        
      
 
