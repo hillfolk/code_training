@@ -51,7 +51,7 @@
 
 
 ** HashMap
-   - [[./hashmap/bestalubm/bestalbum.go][전화번호부 문제]]
+   - [[./hashmap/bestalbum/bestalbum.go][전화번호부 문제]]
    - [[./hashmap/compain/Solution.java][달리기 완주자문제]]
    - [[./hashmap/phonebook/phonebook.py][베스트 앨범문제]]
    
