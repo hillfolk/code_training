@@ -1,40 +1,91 @@
 #include <iostream>
+#include "linkedlist.h"
 
-using namespace std;
-
-class Node {
-  Node *next = null;
-  int data;
-
-  pulbic Node(int d) {
-    data = d;
-  }
-
-  void appendToTail(int d){
-    Node *end = new Node(d);
-    Node *n = this;
-    while ( n.next != null){
-      n = n.next;
-    }
-
-    n.next = end;
-  }
-
-  Node deleteNode(Node head, int d){
-    Node *n = head;
-    if (n.data == d){
-      return head.next; 
-    }
-
-    while (n.next != null){
-      if (n.next.data == d) {
-	n.next = n.next.next;
-	return head;
-      }
-      n = n.next;
-    }
-    return head
-  }
-  
+LinkedList::LinkedList()
+{
+    this->head = nullptr;
 }
-  
+
+LinkedList::~LinkedList()
+{
+    Node* current = head;
+
+    while (current != 0)
+    { 
+        Node* next = current->next;
+        delete current;
+        current = next;
+    }
+
+    head = nullptr;
+
+    std::cout << "List successfully deleted from memory" << std::endl;
+}
+
+void LinkedList::insert(int value)
+{
+    if (head == NULL)
+    {
+        head = new Node();
+        tail = head;
+        head->next = nullptr;
+        head->data = value;
+    }
+    else
+    {
+        tail->next = new Node();
+        tail = tail->next;
+        tail->data = value;
+        tail->next = nullptr;
+    }
+}
+
+void LinkedList::createCycle()
+{
+    tail->next = head->next;  
+}
+
+void LinkedList::display()
+{
+    Node* temp;
+
+    if (head == NULL)
+    {
+        return;
+    }
+
+    temp = head;
+
+    while (temp != NULL)
+    {
+        std::cout << temp->data << ' ';
+        temp = temp->next;
+    }
+
+    std::cout << std::endl;
+}
+
+
+int  main(){
+ LinkedList* myList = new LinkedList();
+    myList->insert(5);
+    myList->insert(7);
+    myList->insert(12);
+    myList->insert(7);
+    myList->insert(16);
+    myList->insert(16);
+    myList->insert(25);
+    myList->insert(11);
+    myList->insert(5);
+
+    std::cout << "The original list is: ";
+    myList->display();
+
+    // change to removeDuplicates_2 to run that implementation
+
+    std::cout << "The list with duplicated removed is: ";
+    myList->display();
+    delete myList;
+
+    return 0;
+}
