@@ -24,6 +24,8 @@
 ** 문자열 처리 
    - Go
 
+** LinkedList
+
 ** 검색
    - Go
 
