@@ -25,6 +25,8 @@
    - Go
 
 ** LinkedList
+   [[./linkedlist/linkedlist.org][LinkedList]]
+   
 
 ** 검색
    - Go
