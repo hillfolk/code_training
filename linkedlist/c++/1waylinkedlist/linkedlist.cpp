@@ -28,5 +28,28 @@ OneWayLinkedList::AddNode(int value){
 
 
 OneWayLinkedList::DelNode(){
-  
+  // Head 부터 삭제 가능 
+   Node* current = head;
+   if (current){
+   delete current;
+   current = next;
+   }
+   head = current;
+     
+}
+
+OneWayLinkedList::~LinkedList()
+{
+    Node* current = head;
+
+    while (current != 0)
+    { 
+        Node* next = current->next;
+        delete current;
+        current = next;
+    }
+
+    head = nullptr;
+
+    
 }
