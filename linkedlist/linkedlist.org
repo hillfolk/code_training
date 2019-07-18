@@ -1,0 +1,5 @@
+#+TITLE: LinkedList
+#+STARTUP:showall
+
+** LinkedList Process 
+
