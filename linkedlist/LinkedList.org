@@ -15,26 +15,25 @@
 
 ** 단방향 LinkedList
    - LinkedList 생성 및 초기화 작업 
-     1. Head 초기화
+     1. Head null 초기화
      2. Tail 초기화 
-   
 
-
-   - Node Add
+   - AddNode
      1. 첫 노드의 경우 head 에 노트를 생성해주고 head 와 tail 을 동일하게 지정 해준다.
      2. 이후 추가 부터는 추가한 노드가 tail 로 지정해 준다. 
 
-   - Node Delete
+   - DeleteNode
      1. 기존 Head 를 임시 포인터에 저장하고 head 를 다음 노드로 변경한다.
 
      2. 임시 저장된 노드의 메모리를 제거한다.
 
-   - 리스트 해제
+   - ~LinkedList
      1. 소유하고 있는 모든 노드의 메모리를 헤드부터 순차적으로 해제 해준다.
      2. 헤드를 해제해준다.
 
 
 ** 양방향 LinkedList
+   - 
 
 ** Cycle LinkedList
 

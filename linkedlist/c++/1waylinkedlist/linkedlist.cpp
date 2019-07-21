@@ -1,14 +1,15 @@
 #include <iostream>
+#include "linkedlist.h"
 using namespace std;
 
-#include "linkedlist.h"
-
-OneWayLinkedList::OneWayLinkedList(){
+OneWayLinkedList::OneWayLinkedList()
+{
   this->head = nullptr;
+  this->tail = nullptr;
 }
 
 
-OneWayLinkedList::AddNode(int value){
+OneWayLinkedList::addNode(int value){
   if (head == NULL)
     {
       head = new Node();
@@ -23,11 +24,32 @@ OneWayLinkedList::AddNode(int value){
       tail->data = vlaue;
       tail->next= nullptr;
     }
+  return 0;
       
 }
 
+void OneWayLinkedList::display()
+{
+     Node* temp;
 
-OneWayLinkedList::DelNode(){
+    if (head == NULL)
+    {
+        return;
+    }
+
+    temp = head;
+
+    while (temp != NULL)
+    {
+        std::cout << temp->data << ' ';
+        temp = temp->next;
+    }
+
+    std::cout << std::endl;
+}
+
+
+int OneWayLinkedList::delNode(){
   // Head 부터 삭제 가능 
    Node* current = head;
    if (current){
@@ -35,10 +57,10 @@ OneWayLinkedList::DelNode(){
    current = next;
    }
    head = current;
-     
+   return 0;  
 }
 
-OneWayLinkedList::~LinkedList()
+OneWayLinkedList::~OneWayLinkedList()
 {
     Node* current = head;
 

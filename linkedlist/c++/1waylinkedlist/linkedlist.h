@@ -1,14 +1,20 @@
 
-typedef struct node {
+typedef struct Node {
   int data;
   Node * next; 
-} node_t
+} Node;
 
   
-class OneWayLinkedList {
-    private
-    node_t *head;
-    public
-    int AddNode(int value);
-    int DelNode();
-  }
+class OneWayLinkedList
+  {
+  public:
+    OneWayLinkedList();
+    ~OneWayLinkedList();
+    void display();
+    int addNode(int value);
+    int delNode();
+  private:
+    Node * head;
+    Node * tail;
+ 
+};
