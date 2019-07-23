@@ -25,11 +25,16 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="1">
+    <Units Count="2">
       <Unit0>
         <Filename Value="SImpleLinkedList.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="linkedlist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LinkedList"/>
+      </Unit1>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

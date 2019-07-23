@@ -8,65 +8,79 @@ uses
   Classes, SysUtils;
 
 type
-
   { TNode }
-
-  TNode = record
+  TNode = class(TObject)
     Data: Pointer;
     Next: TNode;
-    function Create(AData: Pointer): TNode;
+    function HasNext: boolean;
+
+  public
+    constructor Create(AData: Pointer); overload;
   end;
 
   { TLinkedList }
 
-  TLinkedList = record
+  TLinkedList = class(TObject)
     Head: TNode;
     Tail: TNode;
-    function Create: TLinkedList;
+    FCnt: integer;
+  public
+    constructor Create;
     procedure Add(AData: Pointer);
     procedure Del;
+    property Cnt: integer read FCnt write FCnt;
   end;
 
 implementation
 
 { TNode }
 
-function TNode.Create(AData: Pointer): TNode;
+function TNode.HasNext: boolean;
 begin
-  Result.Data := AData;
-  Result.Next := nil;
+  if Self.Next <> nil then
+    Result := True;
+end;
+
+constructor TNode.Create(AData: Pointer);
+begin
+  Data := AData;
+  Next := nil;
 end;
 
 { TLinkedList }
 
-function TLinkedList.Create: TLinkedList;
+constructor TLinkedList.Create;
 begin
-  Result.Head := nil;
+  Head := nil;
+  Tail := nil;
 end;
 
-procedure TLinkedList.Add(AData:Pointer);
-var
-  CurrentNode: TNode;
+procedure TLinkedList.Add(AData: Pointer);
 begin
-  if Assigned(Head) then
+  if FCnt = 0 then
   begin
-    Self.tail.Next := TNode.Create(AData);
-    Self.tail := Self.Head.Next;
-
+    Head := TNode.Create(AData);
+    Tail := Head;
   end
   else
   begin
-     Self.Head := TNode.Create(AData);
-    Self.Tail := Anode;
-    Self.Head.Next := nil;
+    Tail.Next := TNode.Create(AData);
+    Tail := Tail.Next;
   end;
 
 end;
 
 procedure TLinkedList.Del;
+var
+  LCurrentNode: TNode;
 begin
+  // FIFO
+  if FCnt = 0 then
+    raise Exception.Create('EMPTY LIST');
 
+  LCurrentNode := Head;
+  Head := Head.Next;
+  FreeAndNil(LCurrentNode);
 end;
 
 end.
-
