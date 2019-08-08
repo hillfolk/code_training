@@ -11,7 +11,6 @@ uses
 
 var
   LinkedList:TDoublyLinkedList;
-  LStr1,LStr2:String;
   LStrPtr:^String;
   LNode,LCurrentNode:TNode;
 begin
@@ -19,8 +18,19 @@ begin
   New(LStrPtr);
   LStrPtr^ := 'Head';
   LinkedList.InsertBefore(nil,LStrPtr);
- New(LStrPtr);
- LStrPtr^ := 'Middle';
+
+  New(LStrPtr);
+  LStrPtr^ := 'Middle';
+  LinkedList.InsertNext(LinkedList.Tail, LStrPtr);
+
+    New(LStrPtr);
+  LStrPtr^ := 'Middle1';
+  LinkedList.InsertNext(LinkedList.Tail, LStrPtr);
+    New(LStrPtr);
+  LStrPtr^ := 'Middle2';
+  LinkedList.InsertNext(LinkedList.Tail, LStrPtr);
+    New(LStrPtr);
+  LStrPtr^ := 'Middle3';
   LinkedList.InsertNext(LinkedList.Tail, LStrPtr);
 
   New(LStrPtr);
