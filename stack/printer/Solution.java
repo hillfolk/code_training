@@ -17,16 +17,19 @@ class Document implements Comparable<Document> {
 
     @Override
     public int compareTo(Document target) {
-        if(this.weight < target.weight) {
-            return 1; // x에 대해서는 오름차순
+        if (this.weight < target.weight) {
+            return 1;
         }
-        else if(this.weight == target.weight) {
-            if(this.location > target.location) { // y에 대해서는 내림차순
-                return -1;
-            }
+        if (this.weight == target.weight) {
+            return 0;
         }
-        return -1;
-            }
+
+//        if (this.location < target.location) {
+//            return 1;
+//        }
+
+        return  -1;
+    }
 }
 
 class PrintQueue {
@@ -38,7 +41,7 @@ class PrintQueue {
     }
 
     public void enqueue(Document document) {
-        this.documentQueue.offer(document);
+        this.documentQueue.add(document);
     }
 
     public Document dequeue() {
@@ -71,14 +74,18 @@ class Solution {
 
         int cnt = 1;
         while (!printQueue.isEmpty()) {
-            Document ldoc = printQueue.dequeue();
-            System.out.println("data:"+ldoc.toString());
-            if (location == ldoc.location) {
-                answer = cnt;
-                System.out.println("Result:"+ldoc.toString());
-                break;
+            for(int i = 0; i < priorities.length;i++) {
+                if (priorities[i] == printQueue.peek().weight) {
+                    if (location == printQueue.peek().location) {
+                        answer = cnt;
+                        System.out.println("Result:" +printQueue.peek().toString());
+                    }
+                    printQueue.dequeue();
+                    cnt++;
+                    break;
+
+                }
             }
-            cnt++;
         }
         return answer;
     }
