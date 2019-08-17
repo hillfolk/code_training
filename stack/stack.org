@@ -1,11 +1,24 @@
-#+TITLE: Stack
+#+TITLE: Stack & Queue
 #+STARTUP:showall
 
 
-** Stack 구성
-   LIFO 먼저 넣은 데이터가 가장 나중에 나오는 데이터 구조
 
-*** 기능 
-    - Push
-    - Pop
+** Stack
+   LIFO(Last-In-First-Out) 먼저 넣은 데이터가 가장 나중에 나오는 데이터 구조
+   임시로 데이터를 넣고 작업을 처리한후 데이터를 꺼내는 프로세스에 자주 사용
+
+*** 연산 
+    - pop() : 스택에서 가장 위에 있는 항목을 반환한다. 스텍에서는 항목을 제거한다. 
+    - Push(item): 스택에 가장위에 아이템을 추가한다.
+    - peek() : 스택에 가장위에 항목을 반환한다. 제거하지는 않는다.
+    - isEmpty(): 스택이 비어 있는 경우 True 를 반환한다.
+
+** Queue
+   FIFO(First-In-First-Out) 먼저 넣은 데이터가 가장 먼저 반환된다. 
+
+*** 연산
+    - add(item):item을 리스트의 끝부분에 추가한다.
+    - remove(): 리스트의 첫번째 항목을 반환하후 제거한다. 
+    - peek(): 큐에서 가장 위에 있는 항목을 반환한다.
+    - isEmpty(): 큐가 비어 있는 경우 True 값을 반환한다. 
 
