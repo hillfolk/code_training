@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Document {
+class Document implements Comparable<Document> {
     int location;
     int weight;
 
@@ -13,69 +13,65 @@ class Document {
         StringBuilder sb = new StringBuilder();
         sb.append(this.location).append(this.weight);
         return sb.toString();
-
     }
+
+    @Override
+    public int compareTo(Document target) {
+        if(this.weight < target.weight) {
+            return 1; // x에 대해서는 오름차순
+        }
+        else if(this.weight == target.weight) {
+            if(this.location > target.location) { // y에 대해서는 내림차순
+                return -1;
+            }
+        }
+        return -1;
+            }
 }
 
-class PrintStack {
-    private Stack<Document> documentStack;
+class PrintQueue {
+    private Queue<Document> documentQueue;
 
-    public PrintStack() {
-        this.documentStack = new Stack<Document>();
-    }
-
-    public void push(Document document) {
-        this.documentStack.push(document);
-        this.sort(this.documentStack);
-
+    public PrintQueue() {
+        this.documentQueue = new PriorityQueue<Document>();
 
     }
 
-    public Document pop() {
-        return documentStack.pop();
+    public void enqueue(Document document) {
+        this.documentQueue.offer(document);
+    }
+
+    public Document dequeue() {
+        return documentQueue.poll();
     }
 
     public Document peek() {
-        return documentStack.peek();
+        return documentQueue.peek();
     }
 
     public boolean isEmpty() {
-        return documentStack.isEmpty();
+        return documentQueue.isEmpty();
     }
 
-    private void sort(Stack<Document> s) {
-        Stack<Document> r = new Stack<Document>();
 
-        while (!s.isEmpty()) {
-            Document doc = s.pop();
-            while(!r.isEmpty() && r.peek().weight < doc.weight ) {
-                s.push(r.pop());
-            }
-            r.push(doc);
-        }
-
-        while(!r.isEmpty()) {
-            s.push(r.pop());
-        }
-    }
 }
 
 class Solution {
     public int solution(int[] priorities, int location) {
         int answer = 0;
-        PrintStack printStack = new PrintStack();
+        PrintQueue printQueue = new PrintQueue();
 
 
         for (int i = 0  ; i   < priorities.length; i++) {
             // 도큐먼트 생성
             Document doc = new Document(i, priorities[i]);
-            printStack.push(doc);
+            printQueue.enqueue(doc);
         }
 
 
         int cnt = 1;
-        while (!printStack.isEmpty()) {
-            Document ldoc = printStack.pop();
+        while (!printQueue.isEmpty()) {
+            Document ldoc = printQueue.dequeue();
             System.out.println("data:"+ldoc.toString());
             if (location == ldoc.location) {
                 answer = cnt;
