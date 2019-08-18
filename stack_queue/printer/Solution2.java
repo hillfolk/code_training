@@ -33,35 +33,50 @@ class Document implements Comparable<Document> {
 }
 
 class PrintQueue {
-    private Queue<Document> documentQueue;
+    private LinkedList<Document> documentLinkedList;
 
     public PrintQueue() {
-        this.documentQueue = new PriorityQueue<Document>();
-
+        this.documentLinkedList = new LinkedList<Document>();
     }
 
     public void enqueue(Document document) {
-        this.documentQueue.add(document);
+        this.documentLinkedList.add(document);
     }
 
     public Document dequeue() {
-        return documentQueue.poll();
+        return documentLinkedList.poll();
     }
 
     public Document peek() {
-        return documentQueue.peek();
+        return documentLinkedList.peek();
+    }
+    public void addFirst(Document document) {
+        this.documentLinkedList.addFirst(document);
+    }
+
+    public void addLast(Document document) {
+        this.documentLinkedList.addLast(document);
+    }
+
+    public Document get(int i) {
+        return this.documentLinkedList.get(i);
     }
 
     public boolean isEmpty() {
-        return documentQueue.isEmpty();
+        return documentLinkedList.isEmpty();
+    }
+
+    public int size() {
+        return this.documentLinkedList.size();
     }
 
 
 }
 
-class Solution {
+class Solution2 {
+
     public int solution(int[] priorities, int location) {
-        int answer = 0;
+        int answer = 1;
         PrintQueue printQueue = new PrintQueue();
 
 
@@ -71,27 +86,30 @@ class Solution {
             printQueue.enqueue(doc);
         }
 
+        Document printDocument = null;
 
-        int cnt = 1;
-        while (!printQueue.isEmpty()) {
-            for(int i = 0; i < priorities.length;i++) {
+        while (printQueue.size() > 1) {
 
-                    if (location == printQueue.peek().location) {
-                        answer = cnt;
-                        System.out.println("Result:" +printQueue.peek().toString());
-//                        return answer;
-                    }
-                    System.out.println("Data:" +printQueue.peek().toString());
+            printDocument = printQueue.peek();
+            for (int i = 1; i < printQueue.size(); i++) {
+                if (printDocument.weight < printQueue.get(i).weight) {
+                    printQueue.addLast(printDocument);
                     printQueue.dequeue();
-                    cnt++;
                     break;
+                }
+
+                if (i == printQueue.size() - 1) {
+                    if (printDocument.location == location) return answer;
+                    printQueue.dequeue();
+                    answer++;
+                }
             }
         }
         return answer;
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution2 solution = new Solution2();
         int[] testingData = {2, 1, 3, 2};
         int[] testingData2 = {1, 1, 9, 1, 1, 1};
         int[] testingData3 = {1};
